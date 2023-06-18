@@ -1,24 +1,27 @@
 import './App.css'
 import Home from './pages/Home';
-import MovingCar from './pages/MovingCar'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useRouteError } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <Home />,
+    errorElement: <ErrorBoundary />
   },
   {
-    path: "/moving-car",
-    element: <MovingCar />,
+   
   },
 ]);
 
+function ErrorBoundary() {
+  const error = useRouteError();
+  console.error(error);
+  return <h1>Dang!</h1>;
+}
+
 function App() {
   return (
-   <div>
     <RouterProvider router={router} />
-   </div>
   )
 }
 
