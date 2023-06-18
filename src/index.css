@@ -7,6 +7,7 @@
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: black;
     background-image: url(./textures/background-image.jpg);
 }
 
@@ -38,6 +39,7 @@
 }
 
 .title, .description {
+    color: #FFFFFF;
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 10px;
