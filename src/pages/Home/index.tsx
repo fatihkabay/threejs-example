@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import "../../index.css";
-import bg from "../../textures/background-image.jpg";
+import bg from "../../textures/bg.jpg";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../textures/logo.png";
 
@@ -15,9 +15,9 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-const renderer = new THREE.WebGL1Renderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-container?.appendChild(renderer.domElement)
+const renderer = new THREE.WebGLRenderer();
+ renderer.setSize(window.innerWidth,  window.innerHeight);
+container?.appendChild(renderer.domElement);
 
 const geometry = new THREE.PlaneGeometry(14, 8, 15, 9);
 const material = new THREE.MeshBasicMaterial({
@@ -38,9 +38,9 @@ function animate() {
         const x = geometry.attributes.position.getX(i);
         const y = geometry.attributes.position.getY(i);
 
-        const anim1 = 0.25 * Math.sin(x * time + 0.7);
-        const anim2 = 0.35 * Math.sin(x * 1 + time + 0.7);
-        const anim3 = 0.1 * Math.sin(y * 15  + time + 0.7);
+        const anim1 = 0.25 * Math.sin(x + time * 0.7);
+        const anim2 = 0.35 * Math.sin(x * 1 + time * 0.7);
+        const anim3 = 0.1 * Math.sin(y * 15 + time * 0.7);
 
         geometry.attributes.position.setZ(i, anim1 + anim2 + anim3);
         geometry.computeVertexNormals();
@@ -56,9 +56,8 @@ function Home() {
   const navigate = useNavigate();
   return (
     <div className="home-page">
-        
+      <div className="three-bg"></div>
       <div className="header">
-        <div className="three-bg"></div>
         <img className="logo" src={Logo} alt="" />
         <div className="box-container">
           <div className="box" onClick={() => navigate("")}>
