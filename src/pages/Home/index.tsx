@@ -4,7 +4,7 @@ import bg from "../../textures/bg.jpg";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../textures/logo.png";
 
-const container = document.querySelector("#home-page");
+const container = document.querySelector("");
 const loader = new THREE.TextureLoader();
 
 const scene = new THREE.Scene();
@@ -54,7 +54,6 @@ animate();
 function Home() {
   const navigate = useNavigate();
   return (
-    <div id="home-page">
       <div className="container">
         <div className="header">
           <img className="logo" src={Logo} alt="" />
@@ -67,8 +66,10 @@ function Home() {
             <div className="box">example 3</div>
           </div>
         </div>
+        <p style={{color: "black"}}>hi how are you
+          
+        </p>
       </div>
-    </div>
   );
 }
 
